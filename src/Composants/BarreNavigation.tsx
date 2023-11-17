@@ -9,7 +9,7 @@ const BarreNavigation: React.FC = () => {
       </div>
       <div>
         <div>
-          <Link to="/">Accueil</Link>
+         // <Link to="/">Accueil</Link>
         </div>
         <div>
           <Link to="/faire-signalement">Faire un signalement</Link>
