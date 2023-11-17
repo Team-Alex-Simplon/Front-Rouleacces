@@ -2,11 +2,11 @@ import React from 'react'
 import {createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css'
 import Accueil from './Pages/Accueil';
-import FaireSignalement from './FaireSignalement';
-import MonProfil from './MonProfil';
-import LesSignalements from './LesSignalements';
-import Connexion from './Connexion';
-import BarreNavigation from './BarreNavigation';
+import FaireSignalement from './Pages/FaireSignalement';
+import MonProfil from './Pages/MonProfil';
+import LesSignalements from './Pages/LesSignalements';
+import Connexion from './Pages/Connexion';
+import BarreNavigation from './Composants/BarreNavigation';
 
 
 
@@ -18,25 +18,30 @@ const router = createBrowserRouter([
   },
   {
     path: "/faire-signalement",
-    element: <div>FaireSignalement</div>,
+    element: <FaireSignalement/>,
   },
   {
     path: "/mon-profil",
-    element: <div>MonProfil</div>,
+    element: <MonProfil/>,
   },
   {
     path: "/les-signalements" ,
-    element: <div>LesSignalements</div>,
+    element: <LesSignalements/>,
   },
   {
     path: "/connexion",
-    element: <div>Connexion</div>,
+    element: <Connexion/>,
   },
 
 ]);
 function App() {
   return (
-<RouterProvider router={router} />
+    <>    <div>   
+      {/* <BarreNavigation />  */}
+      <RouterProvider router={router} />
+    </div>
+</>
+
   );
 }
 
