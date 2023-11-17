@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const piedPage: React.FC = () => {
+const PiedPage: React.FC = () => {
   return (
     <footer>
       <nav>
@@ -22,4 +22,4 @@ const piedPage: React.FC = () => {
   );
 };
 
-export default piedPage;
+export default PiedPage;

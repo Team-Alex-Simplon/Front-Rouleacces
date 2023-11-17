@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import BarreNavigation from '../Composants/BarreNavigation';
-import piedPage from '../Composants/piedPage';
+import piedPage from '../Composants/PiedPage';
 
 const Accueil = () => {
   return (

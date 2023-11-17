@@ -1,9 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BarreNavigation from './Composants/BarreNavigation';
-import piedPage from './Composants/piedPage';
-
+import PiedPage from './Composants/PiedPage';
 import Accueil from './Pages/accueil';
+
+
+
+
+
 //import FaireSignalement from './Pages/FaireSignalement';
 //import MonProfil from './Pages/MonProfil';
 //import LesSignalements from './Pages/LesSignalements';
@@ -27,22 +31,18 @@ import Accueil from './Pages/accueil';
 function App() {
   return (
     <Router>
-      <Routes>
-     
+    {/* Barre de navigation affichée sur toutes les pages */}
+    <BarreNavigation />
+
+    {/* Contenu spécifique à chaque page */}
+    <Routes>
       <Route path="/" element={<Accueil />} />
-        <Route path="/rouleacces" element={<RouleAcces />} />
-        <Route path="/numeroImmatriculation" element={<NumeroImmatriculation />} />
-        <Route path="/quiSommesNous" element={<QuiSommesNous />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/planDuSite" element={<PlanDuSite />} />
-      
-        <Route path="/mentionsLegales" element={<MentionsLegales />} />
-        <Route path="/politiqueDeConfidentialite" element={<PolitiqueDeConfidentialite />} />
-        <Route path="/utilisationDesCookies" element={<UtilisationDesCookies />} />
-      </Routes>
+      {/* Ajoutez d'autres routes au besoin */}
+    </Routes>
 
-
-    </Router>
+    {/* Pied de page affiché sur toutes les pages */}
+    <PiedPage/>
+  </Router>
   );
 }
 

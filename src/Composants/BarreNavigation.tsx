@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logoImage from '../Images/rouleaccessfondBlanc.png';
+
 
 const BarreNavigation: React.FC = () => {
   return (
     <nav>
       <div className="logo">
-        <img src="/path/to/logo.png" alt="Logo" />
+        <img src={logoImage} alt="Logo" />
       </div>
       <div>
         <div>
-         // <Link to="/">Accueil</Link>
+          {/* <Link to="/">Accueil</Link> */}
         </div>
         <div>
           <Link to="/faire-signalement">Faire un signalement</Link>
@@ -28,4 +30,4 @@ const BarreNavigation: React.FC = () => {
   );
 };
 
-export default BarreNavigation
+export default BarreNavigation;
