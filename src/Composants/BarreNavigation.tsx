@@ -1,5 +1,7 @@
+// BarreNavigation.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './styles/Navbar.css'; // Import the CSS file
 
 const BarreNavigation: React.FC = () => {
   return (
@@ -28,4 +30,4 @@ const BarreNavigation: React.FC = () => {
   );
 };
 
-export default BarreNavigation
+export default BarreNavigation;

@@ -1,20 +1,21 @@
-import React from 'react'
-import {createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './App.css'
+// src/App.tsx
+
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './App.css';
 import Accueil from './Pages/Accueil';
+
 import FaireSignalement from './FaireSignalement';
 import MonProfil from './MonProfil';
 import LesSignalements from './LesSignalements';
 import Connexion from './Connexion';
 import BarreNavigation from './BarreNavigation';
-
-
+import Acceuil from './Pages/Accueil';
 
 const router = createBrowserRouter([
-
   {
     path: "/accueil",
-    element: <Accueil />,
+    element: <Acceuil />,
   },
   {
     path: "/faire-signalement",
@@ -25,19 +26,19 @@ const router = createBrowserRouter([
     element: <div>MonProfil</div>,
   },
   {
-    path: "/les-signalements" ,
+    path: "/les-signalements",
     element: <div>LesSignalements</div>,
   },
   {
     path: "/connexion",
     element: <div>Connexion</div>,
   },
-
 ]);
+
 function App() {
   return (
-<RouterProvider router={router} />
+    <RouterProvider router={router} />
   );
 }
 
-export default App
+export default App;
