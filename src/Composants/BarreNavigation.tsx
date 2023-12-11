@@ -1,30 +1,32 @@
-import React from 'react';
+// BarreNavigation.tsx
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoImage from '../Images/rouleaccessfondBlanc.png';
-
+import './BarreNavigation.css';
 
 const BarreNavigation: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <nav>
+    <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
       <div className="logo">
-        <img src={logoImage} alt="Logo" />
+        <Link to="/">
+          <img src={logoImage} alt="Logo" />
+        </Link>
       </div>
-      <div>
-        <div>
-          {/* <Link to="/">Accueil</Link> */}
-        </div>
-        <div>
-          <Link to="/faire-signalement">Faire un signalement</Link>
-        </div>
-        <div>
-          <Link to="/mon-profil">Mon profil</Link>
-        </div>
-        <div>
-          <Link to="/les-signalements">Les signalements</Link>
-        </div>
-        <div>
-          <Link to="/connexion">Connexion</Link>
-        </div>
+      <div className={`links ${menuOpen ? 'open' : ''}`}>
+        <Link to="/faire-signalement">Faire un signalement</Link>
+        <Link to="/mon-profil">Mon profil</Link>
+        <Link to="/les-signalements">Les signalements</Link>
+        <Link to="/connexion">Connexion</Link>
+      </div>
+      <div className="menu-icon" onClick={toggleMenu}>
+        &#9776;
       </div>
     </nav>
   );
