@@ -1,29 +1,48 @@
-/* styles/Navbar.css */
+body, html {
+  margin: 0;
+  padding: 0;
+}
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333; /* Set your desired background color */
-    padding: 10px;
-  }
-  
-  .logo img {
-    width: 50px; /* Adjust the width of your logo as needed */
-    height: auto;
-  }
-  
-  nav div {
-    display: flex;
-  }
-  
-  nav div a {
-    color: white; /* Set the text color */
-    text-decoration: none;
-    margin: 0 15px; /* Adjust the spacing between navigation items */
-  }
-  
-  nav div a:hover {
-    text-decoration: underline; /* Add an underline effect on hover */
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F5F5F5;
+  padding: 10px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 150px; /* Ajustez la largeur selon vos besoins */
+  height: auto;
+  filter: grayscale(100%); /* Convertit l'image en niveaux de gris (logo sera en noir) */
+}
+
+nav div {
+  display: flex;
+  align-items: left; /* Alignez les éléments au centre verticalement */
+  flex-grow: 1; /* Le div occupera tout l'espace disponible entre le logo et les liens */
+}
+
+nav div a {
+  color: #403E49;
+  text-decoration: none;
+  margin: 0 15px;
+  flex-grow: 1; /* Les liens occupent une part équitable de l'espace disponible */
+}
+
+nav div a:first-child {
+  margin-right: auto; /* Logo aligné à gauche */
+}
+
+nav div a:last-child {
+  margin-left: auto; /* Dernier lien aligné à droite */
+}
+
+/* Désactiver l'effet de survol sur le logo */
+.logo:hover img {
+  filter: grayscale(100%) !important;
+}

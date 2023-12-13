@@ -1,43 +1,47 @@
-// src/App.tsx
-
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import './App.css';
 import Accueil from './Pages/Accueil';
+import FaireSignalement from './Pages/FaireSignalement';
+import MonProfil from './Pages/Monprofil';
+import LesSignalements from './Pages/LesSignalements';
+import Connexion from './Pages/Connexion';
 
-import FaireSignalement from './FaireSignalement';
-import MonProfil from './MonProfil';
-import LesSignalements from './LesSignalements';
-import Connexion from './Connexion';
-import BarreNavigation from './BarreNavigation';
-import Acceuil from './Pages/Accueil';
 
-const router = createBrowserRouter([
+const routes = [
   {
-    path: "/accueil",
-    element: <Acceuil />,
+    path: "/",
+    element: <Accueil />,
   },
   {
     path: "/faire-signalement",
-    element: <div>FaireSignalement</div>,
+    element: <FaireSignalement />,
   },
   {
     path: "/mon-profil",
-    element: <div>MonProfil</div>,
+    element: <MonProfil />,
   },
   {
     path: "/les-signalements",
-    element: <div>LesSignalements</div>,
+    element: <LesSignalements />,
   },
   {
     path: "/connexion",
-    element: <div>Connexion</div>,
+    element: <Connexion />,
   },
-]);
+];
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <Router>
+    
+      <Routes>
+        {routes.map(route => (
+          <Route key={route.path} path={route.path} element={route.element} />
+        ))}
+      </Routes>
+    </Router>
   );
 }
 
