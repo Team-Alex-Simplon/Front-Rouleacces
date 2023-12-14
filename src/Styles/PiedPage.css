@@ -1,0 +1,28 @@
+/* PiedPage.css */
+
+footer {
+    background-color: #403e49; /* Choisissez la couleur de fond de votre pied de page */
+    padding: 20px; /* Ajustez l'espacement intérieur selon vos préférences */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  footer ul li {
+    display: inline-block;
+    margin-right: 10px; /* Ajustez la marge entre les éléments de la liste selon vos préférences */
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: #fff; /* Choisissez la couleur du texte pour les liens du pied de page */
+    font-weight: bold;
+  }
+  

@@ -1,17 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImage from '../Images/rouleaccessfondBlanc.png';
-
+import '../Styles/BarreNavigation.css';
+//import logo from "/Images/rouleaccessfondBlanc.jpg";
+import logo from "/Image/rouleaccessfondBlanc.jpg";
 
 const BarreNavigation: React.FC = () => {
   return (
     <nav>
       <div className="logo">
-        <img src={logoImage} alt="Logo" />
+        {/* Ajoutez le composant Link pour faire du logo un lien vers la page d'accueil */}
+        <Link to="/">
+          <img src={logo} alt="Logo" className="no-hover-effect" />
+        </Link>
       </div>
       <div>
         <div>
-          {/* <Link to="/">Accueil</Link> */}
+          <Link to="/">Accueil</Link>
         </div>
         <div>
           <Link to="/faire-signalement">Faire un signalement</Link>
