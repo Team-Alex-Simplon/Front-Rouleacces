@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/BarreNavigation.css';
-//import logo from "/Images/rouleaccessfondBlanc.jpg";
-import logo from "/Image/rouleaccessfondBlanc.jpg";
+import logo from "/Images/rouleaccessfondBlanc.png";
 
 const BarreNavigation: React.FC = () => {
   return (

@@ -1,9 +1,9 @@
 // Accueil.tsx
 
 import React, { useRef, ChangeEvent } from "react";
-import familleImage from "/Image/famille.jpg";
-import Image from "/Image/img.png";
-import Maps from "/Image/Maps.jpg";
+import familleImage from "/Images/famille.jpg";
+import Image from "/Images/img.png";
+import Maps from "/Images/Maps.jpg";
 import "../Styles/Accueil.css";
 import BarreNavigation from "../Composants/BarreNavigation";
 import PiedPage from "../Composants/PiedPage";
@@ -38,9 +38,9 @@ const Accueil: React.FC = () => {
         </div>
         <div className="column">
           <div className="image-container">
-            {/* Add onClick handler to trigger file input */}
+          
             <img className="image" src={Image} alt="Télécharger" onClick={handleImageClick} />
-            {/* File input to handle file selection */}
+         
             <input
               type="file"
               ref={inputRef}
