@@ -7,7 +7,7 @@ const PiedPage: React.FC = () => {
   return (
     <footer>
       <ul>
-        <li><Link to="/rouleacces">Rôle d'accès</Link></li>
+        <li><Link to="/rouleacces">Rouleacces</Link></li>
         <li><Link to="/numeroImmatriculation">Numéro d’immatriculation</Link></li>
         <li><Link to="/quiSommesNous">Qui sommes nous</Link></li>
         <li><Link to="/contact">Contact</Link></li>
