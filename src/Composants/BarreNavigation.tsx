@@ -20,14 +20,22 @@ const BarreNavigation: React.FC = () => {
           <img src={logo} alt="Logo" className="no-hover-effect" />
         </Link>
       </div>
-      <div className={`links ${menuOpen ? 'open' : ''}`}>
-        <Link to="/faire-signalement">Faire un signalement</Link>
-        <Link to="/mon-profil">Mon profil</Link>
-        <Link to="/les-signalements">Les signalements</Link>
-        <Link to="/connexion">Connexion</Link>
-      </div>
-      <div className="menu-icon" onClick={toggleMenu}>
-        &#9776;
+      <div>
+        <div>
+          <Link to="/">Accueil</Link>
+        </div>
+        <div>
+          <Link to="/faire-signalement">Faire un signalement</Link>
+        </div>
+        <div>
+          <Link to="/mon-profil">Mon profil</Link>
+        </div>
+        <div>
+          <Link to="/les-signalements">Les signalements</Link>
+        </div>
+        <div>
+          <Link to="/connexion">Connexion</Link>
+        </div>
       </div>
     </nav>
   );

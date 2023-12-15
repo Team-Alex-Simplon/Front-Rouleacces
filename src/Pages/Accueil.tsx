@@ -2,10 +2,12 @@
 
 import React, { useRef, ChangeEvent } from "react";
 import familleImage from "/Images/famille.jpg";
-import Image from "/Images/img.svg";
+import Image from "/Images/img.png";
 import Maps from "/Images/Maps.jpg";
 import "../Styles/Accueil.css";
 import BarreNavigation from "../Composants/BarreNavigation";
+import PiedPage from "../Composants/PiedPage";
+import "../Styles/PiedPage.css";
 
 const Accueil: React.FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -36,9 +38,9 @@ const Accueil: React.FC = () => {
         </div>
         <div className="column">
           <div className="image-container">
-            {/* Add onClick handler to trigger file input */}
+          
             <img className="image" src={Image} alt="Télécharger" onClick={handleImageClick} />
-            {/* File input to handle file selection */}
+         
             <input
               type="file"
               ref={inputRef}
@@ -55,6 +57,7 @@ const Accueil: React.FC = () => {
       <div className="lieux">Les lieux </div>
         
       <img className="Maps" src={Maps} alt="Maps" />
+      <PiedPage/>
     </div>
   );
 };
