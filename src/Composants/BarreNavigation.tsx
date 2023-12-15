@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoImage from '../Images/rouleaccessfondBlanc.png';
-import './BarreNavigation.css';
+import '../Styles/BarreNavigation.css';
+import logo from "/Images/rouleaccessfondBlanc.jpg";
 
 const BarreNavigation: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,8 +15,9 @@ const BarreNavigation: React.FC = () => {
   return (
     <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
       <div className="logo">
+        {/* Ajoutez le composant Link pour faire du logo un lien vers la page d'accueil */}
         <Link to="/">
-          <img src={logoImage} alt="Logo" />
+          <img src={logo} alt="Logo" className="no-hover-effect" />
         </Link>
       </div>
       <div className={`links ${menuOpen ? 'open' : ''}`}>
