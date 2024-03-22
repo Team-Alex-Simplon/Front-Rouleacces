@@ -1,0 +1,13 @@
+// Importer la police Roboto Semi-Bold depuis Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap');
+
+// Définir les couleurs personnalisées
+$primary-color: #CDEAF2; // Couleur primaire
+$secondary-color: #C8C21E; // Couleur secondaire
+
+// Appliquer la police et les couleurs personnalisées au corps du document
+body {
+    font-family: 'Roboto', sans-serif; // Utiliser la police Roboto pour le corps du document
+    font-weight: 600; // Utiliser la variante semi-bold (600) de la police Roboto
+    color: #575454; // Utiliser la couleur gris #575454
+}

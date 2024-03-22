@@ -28,8 +28,9 @@ const Accueil: React.FC = () => {
 
   return (
     <div>
-      <BarreNavigation />
-      <div style={{ marginTop: "100px" }} className="container">
+     <BarreNavigation />
+      <div style={{ marginTop: "100px" }} className="container"> 
+      
         <div className="column">
           <div className="title">Facilitez vos sorties, partagez vos expériences de déplacements.</div>
           <div className="image-container">

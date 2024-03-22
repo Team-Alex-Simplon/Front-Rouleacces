@@ -1,47 +1,86 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-interface Signalement {
-  id: number;
-  titre: string;
-  description: string;
-  date: Date;
+interface SignalementProps {
+  onSignalementSubmit: (data: { 
+    latitude: number; 
+    longitude: number; 
+    description: string; 
+    datetime: string; 
+    user: { id: number } 
+  }) => void;
 }
 
-const LesSignalements: React.FC = () => {
-  const [signalements, setSignalements] = useState<Signalement[]>([]);
+const Signalement: React.FC<SignalementProps> = ({ onSignalementSubmit }) => {
+  const [latitude, setLatitude] = useState<number>(0);
+  const [longitude, setLongitude] = useState<number>(0);
+  const [description, setDescription] = useState<string>('');
+  const [datetime, setDatetime] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
-  // Exemple : Chargez les signalements depuis votre backend (à remplacer par votre propre logique).
-  useEffect(() => {
-    // Exemple simplifié - à remplacer par la logique d'appel à votre API.
-    const fetchSignalements = async () => {
-      try {
-        // Remplacez cette ligne par l'appel à votre API pour récupérer les signalements.
-        const response = await fetch('https://example.com/api/signalements');
-        const data = await response.json();
-
-        setSignalements(data);
-      } catch (error) {
-        console.error('Erreur lors du chargement des signalements', error);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('Token not found');
       }
-    };
 
-    fetchSignalements();
-  }, []);
+      const response = await fetch('http://localhost:3000/api/signalements/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          latitude,
+          longitude,
+          description,
+          datetime,
+          user: { id: 1 }, // Remplacez 1 par l'ID de l'utilisateur authentifié
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create signalement');
+      }
+
+      const responseData = await response.json();
+      onSignalementSubmit({
+        latitude,
+        longitude,
+        description,
+        datetime,
+        user: { id: responseData.user_id }, // Assurez-vous que user_id est correctement récupéré depuis la réponse de l'API
+      });
+    } catch (error: any) {
+      console.error('Error while creating signalement:', error.message);
+      // Afficher un message d'erreur à l'utilisateur
+      alert('Erreur lors de la création du signalement: ' + error.message);
+    }
+    setLoading(false);
+  };
 
   return (
-    <div className="container">
-      <h1>Liste des Signalements</h1>
-      <ul>
-        {signalements.map((signalement) => (
-          <li key={signalement.id}>
-            <h2>{signalement.titre}</h2>
-            <p>{signalement.description}</p>
-            <p>Date du signalement : {signalement.date.toISOString()}</p>
-          </li>
-        ))}
-      </ul>
+    <div>
+      <h2>Créer un Signalement</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="latitude">Latitude :</label>
+        <input type="number" id="latitude" value={latitude} onChange={(e) => setLatitude(parseFloat(e.target.value))} required /><br />
+
+        <label htmlFor="longitude">Longitude :</label>
+        <input type="number" id="longitude" value={longitude} onChange={(e) => setLongitude(parseFloat(e.target.value))} required /><br />
+
+        <label htmlFor="description">Description :</label>
+        <textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} required /><br />
+
+        <label htmlFor="datetime">Date et heure :</label>
+        <input type="datetime-local" id="datetime" value={datetime} onChange={(e) => setDatetime(e.target.value)} required /><br />
+
+        <button type="submit" disabled={loading}>Créer le signalement</button>
+      </form>
     </div>
   );
 };
 
-export default LesSignalements;
+export default Signalement;

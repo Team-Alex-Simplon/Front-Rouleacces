@@ -1,8 +1,8 @@
 /* Styles/Accueil.css */
 
-/* Add styling for your BarreNavigation component if needed */
+
 .BarreNavigation {
-  margin-bottom: 100px; /* Adjust the value as needed */
+  margin-bottom: 100px; 
 }
 
 .container {
@@ -38,8 +38,7 @@
 .image {
   width: 100%;
   height: auto;
-  margin-bottom: 10px;
-  margin-right: 10px; /* Add right margin to the image */
+
 }
 
 .text {
@@ -56,13 +55,7 @@
 .Maps {
   width: 100%;
   height: auto;
-  margin-bottom: 10px;
-  margin-left: 100px; /* Adjust the value for left margin */
-<<<<<<< HEAD
-  margin-right: 100px; /* Adjust the value for right margin */
-=======
-  margin-right: 160px; /* Adjust the value for right margin */
->>>>>>> piedPage
+
 }
 @media (max-width: 768px) {
   .container {
@@ -70,8 +63,4 @@
     margin-left: 20px; /* Adjust the value for left margin on smaller screens */
     margin-right: 20px; /* Adjust the value for right margin on smaller screens */
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> piedPage

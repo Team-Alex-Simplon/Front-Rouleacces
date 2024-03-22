@@ -1,5 +1,4 @@
 // BarreNavigation.tsx
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/BarreNavigation.css';
@@ -15,27 +14,22 @@ const BarreNavigation: React.FC = () => {
   return (
     <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
       <div className="logo">
-        {/* Ajoutez le composant Link pour faire du logo un lien vers la page d'accueil */}
         <Link to="/">
-          <img src={logo} alt="Logo" className="no-hover-effect" />
+          <img src={logo} alt="Logo" />
         </Link>
       </div>
-      <div>
-        <div>
-          <Link to="/">Accueil</Link>
-        </div>
-        <div>
-          <Link to="/faire-signalement">Faire un signalement</Link>
-        </div>
-        <div>
-          <Link to="/mon-profil">Mon profil</Link>
-        </div>
-        <div>
-          <Link to="/les-signalements">Les signalements</Link>
-        </div>
-        <div>
-          <Link to="/connexion">Connexion</Link>
-        </div>
+      <div className="menu-icon" onClick={toggleMenu}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        <Link to="/">Accueil</Link>
+        <Link to="/faire-signalement">Faire un signalement</Link>
+        <Link to="/mon-profil">Mon profil</Link>
+        <Link to="/les-signalements">Les signalements</Link>
+        <Link to="/inscription">inscription</Link>
+        <Link to="/connexion">connexion</Link>
       </div>
     </nav>
   );
