@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 interface ConnexionProps {
   onConnexionSubmit: (data: { mail: string; password: string }) => void;
 }
@@ -15,7 +16,7 @@ const Connexion: React.FC<ConnexionProps> = ({ onConnexionSubmit }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/authentifications/login', {
+      const response = await fetch('http://localhost:3000/api/utilisateurs/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,6 +46,10 @@ const Connexion: React.FC<ConnexionProps> = ({ onConnexionSubmit }) => {
   
 
   return (
+    <div>
+   
+    <div className="Connexion">
+
     <form onSubmit={handleSubmit}>
       <label htmlFor="mail">Adresse e-mail :</label>
       <input type="email" id="mail" value={mail} onChange={(e) => setMail(e.target.value)} required /><br />
@@ -54,6 +59,8 @@ const Connexion: React.FC<ConnexionProps> = ({ onConnexionSubmit }) => {
       
       <button type="submit" disabled={loading}>Se connecter</button>
     </form>
+    </div>
+    </div>
   );
 };
 

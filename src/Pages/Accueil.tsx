@@ -5,7 +5,7 @@ import familleImage from "/Images/famille.jpg";
 import Image from "/Images/img.png";
 import Maps from "/Images/Maps.jpg";
 import "../Styles/Accueil.css";
-import BarreNavigation from "../Composants/BarreNavigation";
+
 import PiedPage from "../Composants/PiedPage";
 import "../Styles/PiedPage.css";
 
@@ -28,7 +28,7 @@ const Accueil: React.FC = () => {
 
   return (
     <div>
-     <BarreNavigation />
+   
       <div style={{ marginTop: "100px" }} className="container"> 
       
         <div className="column">
