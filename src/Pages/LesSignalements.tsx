@@ -1,47 +1,48 @@
-import React, { useEffect, useState } from 'react';
-
-interface Signalement {
-  id: number;
-  titre: string;
-  description: string;
-  date: Date;
-}
+import React, { useState, useEffect } from 'react';
 
 const LesSignalements: React.FC = () => {
-  const [signalements, setSignalements] = useState<Signalement[]>([]);
+  const [signalements, setSignalements] = useState<any[]>([]);
+  const token = localStorage.getItem('token'); // Récupérer le token depuis le localStorage
 
-  // Exemple : Chargez les signalements depuis votre backend (à remplacer par votre propre logique).
   useEffect(() => {
-    // Exemple simplifié - à remplacer par la logique d'appel à votre API.
     const fetchSignalements = async () => {
       try {
-        // Remplacez cette ligne par l'appel à votre API pour récupérer les signalements.
-        const response = await fetch('https://example.com/api/signalements');
-        const data = await response.json();
-
-        setSignalements(data);
-      } catch (error) {
-        console.error('Erreur lors du chargement des signalements', error);
+        const response = await fetch('http://localhost:3000/api/signalements', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setSignalements(data);
+        } else {
+          throw new Error('Erreur lors de la récupération des signalements');
+        }
+      } catch (error: any) {
+        console.error('Erreur lors de la récupération des signalements :', error.message);
       }
     };
 
     fetchSignalements();
-  }, []);
+  }, [token]); // Ajoutez token à la liste des dépendances du hook useEffect pour qu'il se déclenche à chaque modification du token
 
   return (
-    <div className="container">
-      <h1>Liste des Signalements</h1>
-      <ul>
-        {signalements.map((signalement) => (
-          <li key={signalement.id}>
-            <h2>{signalement.titre}</h2>
-            <p>{signalement.description}</p>
-            <p>Date du signalement : {signalement.date.toISOString()}</p>
-          </li>
-        ))}
-      </ul>
+    <div>
+      <h2>Liste des signalements</h2>
+      {signalements.map((signalement, index) => (
+        <div key={index}>
+          <h3>Signalement #{index + 1}</h3>
+          <p>Latitude: {signalement.latitude}</p>
+          <p>Longitude: {signalement.longitude}</p>
+          <p>Description: {signalement.description}</p>
+          <hr />
+        </div>
+      ))}
     </div>
   );
 };
 
 export default LesSignalements;
+
+
+
