@@ -1,43 +1,40 @@
-import React from 'react'
-import {createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
 import Accueil from './Pages/Accueil';
-import FaireSignalement from './FaireSignalement';
-import MonProfil from './MonProfil';
-import LesSignalements from './LesSignalements';
-import Connexion from './Connexion';
-import BarreNavigation from './BarreNavigation';
+import MonProfil from './Pages/Monprofil';
+import Connexion from './Pages/Connexion';
+import Inscription from './Pages/Inscription';
+import FaireSignalement from './Pages/FaireSignalement';
+import LesSignalements from './Pages/LesSignalements'; // Importez le composant LesSignalements
+import BarreNavigation from './Composants/BarreNavigation';
 
+interface AppProps {
+  token: string;
+}
 
+const handleConnexionSubmit = (data: { mail: string; password: string }) => {
+  console.log(data);
+};
 
-const router = createBrowserRouter([
+const handleInscriptionSubmit = (data: { pseudo: string; password: string; mail: string }) => {
+  console.log(data);
+};
 
-  {
-    path: "/accueil",
-    element: <Accueil />,
-  },
-  {
-    path: "/faire-signalement",
-    element: <div>FaireSignalement</div>,
-  },
-  {
-    path: "/mon-profil",
-    element: <div>MonProfil</div>,
-  },
-  {
-    path: "/les-signalements" ,
-    element: <div>LesSignalements</div>,
-  },
-  {
-    path: "/connexion",
-    element: <div>Connexion</div>,
-  },
-
-]);
-function App() {
+const App: React.FC<AppProps> = ({ token }) => {
   return (
-<RouterProvider router={router} />
+    <Router>
+    <BarreNavigation />
+    <Routes>
+      <Route path="/" element={<Accueil />} />
+      <Route path="/faire-signalement" element={<FaireSignalement token={token} />} />
+      <Route path="/mon-profil" element={<MonProfil />} />
+      <Route path="/les-signalements" element={<LesSignalements />} />
+      <Route path="/connexion" element={<Connexion onConnexionSubmit={handleConnexionSubmit} />} />
+      <Route path="/inscription" element={<Inscription onInscriptionSubmit={handleInscriptionSubmit} />} />
+    </Routes>
+  </Router>
   );
 }
 
-export default App
+export default App;

@@ -1,0 +1,66 @@
+/* Styles/Accueil.css */
+
+
+.BarreNavigation {
+  margin-bottom: 10px; 
+}
+
+.container {
+  display: flex;
+  background-color: #cdeaf2;
+  padding: 20px;
+  margin-top: 1px; /* Adjust the value as needed */
+  margin-left: 100px; /* Adjust the value for left margin */
+  margin-right: 100px; /* Adjust the value for right margin */
+  margin-bottom: 80px; /* Add margin between the end of the container and the title "Les lieux" */
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.column1 {
+  margin-right: 10px; /* Ajoutez une marge droite entre la colonne 1 et la colonne 2 */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px; /* Adjust the value for the margin between title and image */
+  background-color: #cdeaf2; /* Background color for the title, including padding */
+  padding: 10px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+
+}
+
+.text {
+  text-align: center;
+}
+
+.lieux {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 130px; /* Adjust the left margin to move "Les lieux" towards the right */
+  margin-bottom: 50px;
+}
+
+.Maps {
+  width: 100%;
+  height: auto;
+
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    margin-left: 20px; /* Adjust the value for left margin on smaller screens */
+    margin-right: 20px; /* Adjust the value for right margin on smaller screens */
+  }
+}
