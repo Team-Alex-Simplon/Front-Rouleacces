@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PiedPage from '../Composants/PiedPage';
 
-interface FaireSignalementProps {}
+interface FaireSignalementProps {
+  token: string;
+}
 
-const FaireSignalement: React.FC<FaireSignalementProps> = () => {
+const FaireSignalement: React.FC<FaireSignalementProps> = ({ token }) => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [description, setDescription] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const token = localStorage.getItem('token'); // Récupérer le token depuis le localStorage
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,9 +81,9 @@ const FaireSignalement: React.FC<FaireSignalementProps> = () => {
           </button>
         </form>
       </div>
-      <PiedPage /> {/* Inclure le pied de page */}
+      <PiedPage />
     </div>
   );
 };
 
-export default FaireSignalement; // Export par défaut du composant FaireSignalement
+export default FaireSignalement;

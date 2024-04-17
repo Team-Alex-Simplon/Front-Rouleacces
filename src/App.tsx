@@ -1,11 +1,11 @@
+import React from 'react';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import Accueil from './Pages/Accueil'; // Assurez-vous d'importer le composant Accueil
+import Accueil from './Pages/Accueil';
 import MonProfil from './Pages/MonProfil';
 import Connexion from './Pages/Connexion';
 import Inscription from './Pages/Inscription';
 import FaireSignalement from './Pages/FaireSignalement';
-import LesSignalements from './Pages/LesSignalements'; // Importez le composant LesSignalements
-
+import LesSignalements from './Pages/LesSignalements';
 
 interface AppProps {
   token: string;
@@ -22,7 +22,6 @@ const App: React.FC<AppProps> = ({ token }) => {
 
   return (
     <Router>
- 
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/faire-signalement" element={<FaireSignalement token={token} />} />

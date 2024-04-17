@@ -1,12 +1,10 @@
-import React, { useRef, ChangeEvent } from 'react';
+import React, { useRef, ChangeEvent } from 'react'; // Import de React et des types associés
 import Image from '/Images/img.png';
 import Maps from '/Images/Maps.jpg';
 import '../Styles/Accueil.css';
 import PiedPage from '../Composants/PiedPage';
 import '../Styles/PiedPage.css';
 import BarreNavigation from '../Composants/BarreNavigation';
-
-
 
 const Accueil: React.FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -26,8 +24,7 @@ const Accueil: React.FC = () => {
 
   return (
     <div>
-
-       < BarreNavigation/>
+      <BarreNavigation />
       <div style={{ marginTop: '100px' }} className="container">
         <div className="column">
           <div className="title">Facilitez vos sorties, partagez vos expériences de déplacements.</div>

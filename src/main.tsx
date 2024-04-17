@@ -1,17 +1,13 @@
-// main.tsx
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-const rootElement = document.getElementById("root");
+// Obtenez le token de votre source de données (localStorage, context, etc.)
+const token = 'your_token_value';
 
-if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-} else {
-  console.error("Root element not found.");
-}
+ReactDOM.render(
+  <React.StrictMode>
+    <App token={token} />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
