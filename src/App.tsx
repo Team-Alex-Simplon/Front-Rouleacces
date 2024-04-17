@@ -1,63 +1,38 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Accueil from './Pages/Accueil';
-import MonProfil from './Pages/Monprofil';
-
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import Accueil from './Pages/Accueil'; // Assurez-vous d'importer le composant Accueil
+import MonProfil from './Pages/MonProfil';
 import Connexion from './Pages/Connexion';
 import Inscription from './Pages/Inscription';
 import FaireSignalement from './Pages/FaireSignalement';
+import LesSignalements from './Pages/LesSignalements'; // Importez le composant LesSignalements
 
-const handleConnexionSubmit = (data: { mail: string; password: string }) => {
-  console.log(data);
-};
 
-const handleInscriptionSubmit = (data: { pseudo: string; password: string; mail: string }) => {
-  console.log(data);
-};
+interface AppProps {
+  token: string;
+}
 
-const handleFaireSignalementSubmit = (data: { latitude: string; longitude: string; description: string; handicaps: string[] }) => {
-  console.log(data);
-};
+const App: React.FC<AppProps> = ({ token }) => {
+  const handleConnexionSubmit = (data: { mail: string; password: string }) => {
+    console.log(data);
+  };
 
-const routes = [
-  {
-    path: "/",
-    element: <Accueil />
-  },
-  {
-    path: "/faire-signalement",
-    element: <FaireSignalement onFaireSignalementSubmit={handleFaireSignalementSubmit} token="" />
-    // Ajoutez token="" comme prop pour FaireSignalement
-  },
-  {
-    path: "/mon-profil",
-    element: <MonProfil />
-  },
-  {
-    path: "/les-signalements",
+  const handleInscriptionSubmit = (data: { pseudo: string; password: string; mail: string }) => {
+    console.log(data);
+  };
 
-  },
-  {
-    path: "/connexion",
-    element: <Connexion onConnexionSubmit={handleConnexionSubmit} />
-  },
-  {
-    path: "/inscription",
-    element: <Inscription onInscriptionSubmit={handleInscriptionSubmit} />
-  }
-];
-
-const App: React.FC = () => {
   return (
     <Router>
+ 
       <Routes>
-        {routes.map(route => (
-          <Route key={route.path} path={route.path} element={route.element} />
-        ))}
+        <Route path="/" element={<Accueil />} />
+        <Route path="/faire-signalement" element={<FaireSignalement token={token} />} />
+        <Route path="/mon-profil" element={<MonProfil />} />
+        <Route path="/les-signalements" element={<LesSignalements />} />
+        <Route path="/connexion" element={<Connexion onConnexionSubmit={handleConnexionSubmit} />} />
+        <Route path="/inscription" element={<Inscription onInscriptionSubmit={handleInscriptionSubmit} />} />
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

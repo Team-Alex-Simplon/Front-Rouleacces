@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import PiedPage from '../Composants/PiedPage'; // Import du pied de page
+
 interface InscriptionProps {
   onInscriptionSubmit: (data: { pseudo: string; password: string; mail: string }) => void;
 }
@@ -15,8 +17,9 @@ const Inscription: React.FC<InscriptionProps> = ({ onInscriptionSubmit }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+
     try {
-      const response = await fetch('http://localhost:3000/api/authentifications/register', {
+      const response = await fetch('http://localhost:3000/api/utilisateurs/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,11 +30,11 @@ const Inscription: React.FC<InscriptionProps> = ({ onInscriptionSubmit }) => {
           mail,
         }),
       });
-  
+
       if (!response.ok) {
         throw new Error('Failed to register');
       }
-  
+
       const responseData = await response.json();
       const token = responseData.token;
       localStorage.setItem('token', token); // Stockage du token dans localStorage
@@ -42,22 +45,28 @@ const Inscription: React.FC<InscriptionProps> = ({ onInscriptionSubmit }) => {
       // Afficher un message d'erreur à l'utilisateur
       alert('Erreur lors de l\'inscription: ' + error.message);
     }
+
     setLoading(false);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="pseudo">Pseudo :</label>
-      <input type="text" id="pseudo" value={pseudo} onChange={(e) => setPseudo(e.target.value)} required /><br />
-      
-      <label htmlFor="password">Mot de passe :</label>
-      <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required /><br />
-      
-      <label htmlFor="mail">Adresse e-mail :</label>
-      <input type="email" id="mail" value={mail} onChange={(e) => setMail(e.target.value)} required /><br />
-      
-      <button type="submit" disabled={loading}>S'inscrire</button>
-    </form>
+    <div>
+      <div className="Inscription">
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="pseudo">Pseudo :</label>
+          <input type="text" id="pseudo" value={pseudo} onChange={(e) => setPseudo(e.target.value)} required /><br />
+
+          <label htmlFor="password">Mot de passe :</label>
+          <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required /><br />
+
+          <label htmlFor="mail">Adresse e-mail :</label>
+          <input type="email" id="mail" value={mail} onChange={(e) => setMail(e.target.value)} required /><br />
+
+          <button type="submit" disabled={loading}>S'inscrire</button>
+        </form>
+      </div>
+      <PiedPage /> {/* Pied de page */}
+    </div>
   );
 };
 
