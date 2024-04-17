@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 
-//import "../Styles/Monprofil.css";
-
-
 const MonProfil: React.FC = () => {
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
@@ -21,9 +18,6 @@ const MonProfil: React.FC = () => {
 
   return (
     <div>
- 
-      <div className="Monprofil">
-
       <h1>Mon Profil</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -58,7 +52,6 @@ const MonProfil: React.FC = () => {
         </div>
         <button type="submit">Enregistrer</button>
       </form>
-    </div>
     </div>
   );
 };

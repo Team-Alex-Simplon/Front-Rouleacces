@@ -6,6 +6,8 @@ import PiedPage from '../Composants/PiedPage';
 import '../Styles/PiedPage.css';
 import BarreNavigation from '../Composants/BarreNavigation';
 
+
+
 const Accueil: React.FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -24,6 +26,7 @@ const Accueil: React.FC = () => {
 
   return (
     <div>
+
        < BarreNavigation/>
       <div style={{ marginTop: '100px' }} className="container">
         <div className="column">

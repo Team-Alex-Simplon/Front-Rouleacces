@@ -1,0 +1,34 @@
+.FaireSignalement {
+  display: flex;
+  background-color: #cdeaf2;
+  margin: 300px;
+  padding: 20px;
+  margin: 0; /* Supprimez les marges */
+  width: 100vw; /* Utilisez 100% de la largeur de la vue */
+  height: 50vh; /* Utilisez 100% de la hauteur de la vue si nécessaire */
+  flex-direction: column; /* Ajustez la direction du flux pour s'adapter au contenu */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 200px; /* Ajustez la valeur pour la marge entre le titre et l'image */
+  background-color: #cdeaf2; /* Couleur de fond pour le titre, y compris le rembourrage */
+  padding: 10px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.text {
+  text-align: center;
+}
+
+.lieux {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 130px; /* Ajustez la marge gauche pour déplacer "Les lieux" vers la droite */
+  margin-bottom: 50px;
+}
