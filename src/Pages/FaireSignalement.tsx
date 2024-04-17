@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PiedPage from '../Composants/PiedPage';
 
-interface FaireSignalementProps {
-  token: string;
-}
+interface FaireSignalementProps {}
 
-const FaireSignalement: React.FC<FaireSignalementProps> = ({ token }) => {
+const FaireSignalement: React.FC<FaireSignalementProps> = () => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [description, setDescription] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const token = localStorage.getItem('token') || '';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,6 +45,18 @@ const FaireSignalement: React.FC<FaireSignalementProps> = ({ token }) => {
     setLoading(false);
   };
 
+  const handleLatitudeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLatitude(e.target.value);
+  };
+
+  const handleLongitudeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLongitude(e.target.value);
+  };
+
+  const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setDescription(e.target.value);
+  };
+
   return (
     <div>
       <div className="FaireSignalement">
@@ -55,7 +67,7 @@ const FaireSignalement: React.FC<FaireSignalementProps> = ({ token }) => {
             type="number"
             id="latitude"
             value={latitude}
-            onChange={(e) => setLatitude(e.target.value)}
+            onChange={handleLatitudeChange}
             required
           />
           <br />
@@ -64,7 +76,7 @@ const FaireSignalement: React.FC<FaireSignalementProps> = ({ token }) => {
             type="number"
             id="longitude"
             value={longitude}
-            onChange={(e) => setLongitude(e.target.value)}
+            onChange={handleLongitudeChange}
             required
           />
           <br />
@@ -72,7 +84,7 @@ const FaireSignalement: React.FC<FaireSignalementProps> = ({ token }) => {
           <textarea
             id="description"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={handleDescriptionChange}
             required
           />
           <br />
