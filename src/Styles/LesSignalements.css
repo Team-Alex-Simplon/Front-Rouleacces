@@ -1,0 +1,35 @@
+/* Style pour le composant LesSignalements */
+
+/* Ajoute une marge en bas de la barre de navigation */
+.BarreNavigation {
+    margin-bottom: 20px;
+  }
+  
+  /* Style de la liste des signalements */
+  .LesSignalements {
+    max-width: 600px;
+    margin: 20px auto; /* Marge autour de la liste */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style des titres */
+  .LesSignalements h2,
+  .LesSignalements h3 {
+    margin-bottom: 10px;
+  }
+  
+  /* Style des paragraphes */
+  .LesSignalements p {
+    margin-bottom: 5px;
+  }
+  
+  /* Style des lignes de séparation */
+  .LesSignalements hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  

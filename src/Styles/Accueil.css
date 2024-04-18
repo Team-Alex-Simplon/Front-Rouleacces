@@ -1,18 +1,13 @@
 /* Styles/Accueil.css */
 
-
-.BarreNavigation {
-  margin-bottom: 10px; 
-}
+/* La classe BarreNavigation a été supprimée car elle n'est pas utilisée dans ce fichier CSS */
 
 .container {
   display: flex;
   background-color: #cdeaf2;
   padding: 20px;
-  margin-top: 1px; /* Adjust the value as needed */
-  margin-left: 100px; /* Adjust the value for left margin */
-  margin-right: 100px; /* Adjust the value for right margin */
-  margin-bottom: 80px; /* Add margin between the end of the container and the title "Les lieux" */
+  margin: 1px auto 80px; /* Centrer le conteneur et ajuster la marge */
+  max-width: 1200px; /* Limiter la largeur maximale du conteneur */
 }
 
 .column {
@@ -23,22 +18,22 @@
   padding: 10px;
 }
 
-.column1 {
-  margin-right: 10px; /* Ajoutez une marge droite entre la colonne 1 et la colonne 2 */
+.column:not(:last-child) {
+  margin-right: 20px; /* Ajouter de l'espace entre les colonnes */
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px; /* Adjust the value for the margin between title and image */
-  background-color: #cdeaf2; /* Background color for the title, including padding */
+  margin-bottom: 20px;
+  background-color: #cdeaf2;
   padding: 10px;
 }
 
 .image {
   width: 100%;
   height: auto;
-
+  cursor: pointer; /* Ajouter un curseur pointer pour indiquer que l'image est cliquable */
 }
 
 .text {
@@ -48,19 +43,27 @@
 .lieux {
   font-size: 24px;
   font-weight: bold;
-  margin-left: 130px; /* Adjust the left margin to move "Les lieux" towards the right */
+  margin-left: 130px; /* Ajuster la marge gauche pour déplacer "Les lieux" vers la droite */
   margin-bottom: 50px;
 }
 
 .Maps {
   width: 100%;
   height: auto;
-
 }
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    margin-left: 20px; /* Adjust the value for left margin on smaller screens */
-    margin-right: 20px; /* Adjust the value for right margin on smaller screens */
+    margin: 1px auto 40px; /* Ajuster la marge sur les écrans plus petits */
+    padding: 10px; /* Réduire l'espace intérieur du conteneur */
+  }
+
+  .column {
+    margin-bottom: 20px; /* Ajouter de l'espace entre les colonnes sur les écrans plus petits */
+  }
+
+  .lieux {
+    margin-left: 20px; /* Ajuster la marge sur les écrans plus petits */
   }
 }

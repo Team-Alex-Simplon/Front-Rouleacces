@@ -1,5 +1,3 @@
-// App.tsx
-
 import React, { useState } from 'react';
 import { Routes, Route, BrowserRouter as Router, Navigate } from 'react-router-dom';
 import Accueil from './Pages/Accueil';
@@ -8,6 +6,9 @@ import Connexion from './Pages/Connexion';
 import Inscription from './Pages/Inscription';
 import FaireSignalement from './Pages/FaireSignalement';
 import LesSignalements from './Pages/LesSignalements';
+import BarreNavigation from './Composants/BarreNavigation';
+import PiedPage from './Composants/PiedPage';
+
 
 interface AppProps {}
 
@@ -26,6 +27,7 @@ const App: React.FC<AppProps> = () => {
 
   return (
     <Router>
+      <BarreNavigation />
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/faire-signalement" element={isAuthenticated ? <FaireSignalement /> : <Navigate to="/connexion" />} />
@@ -41,6 +43,7 @@ const App: React.FC<AppProps> = () => {
           </>
         )}
       </Routes>
+      <PiedPage /> {/* Ajoutez votre composant PiedPage ici */}
     </Router>
   );
 };

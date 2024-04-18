@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import '../Styles/LesSignalements.css';
+
 
 const LesSignalements: React.FC = () => {
   const [signalements, setSignalements] = useState<any[]>([]);

@@ -1,3 +1,65 @@
+/* Styles pour le formulaire d'inscription */
+
+/* Ajoute une marge en bas de la barre de navigation */
+.BarreNavigation {
+  margin-bottom: 20px;
+}
+
+/* Style du conteneur principal du formulaire */
 .Inscription {
-    padding-top: 500px; /* Ajoutez un padding-top équivalent à la hauteur de votre barre de navigation */
-  }
+  max-width: 400px;
+  margin: 20px auto; /* Marge autour du formulaire */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style du formulaire */
+.Inscription form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style des étiquettes */
+.Inscription label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Style des champs de saisie */
+.Inscription input[type="text"],
+.Inscription input[type="password"],
+.Inscription input[type="email"] {
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style du bouton "S'inscrire" */
+.Inscription button[type="submit"] {
+  padding: 12px;
+  background-color: #C8C21E; /* Nouvelle couleur spécifiée */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Style du bouton "S'inscrire" au survol */
+.Inscription button[type="submit"]:hover {
+  background-color: #b5ab1b; /* Légère variation de couleur au survol */
+}
+
+/* Style pour les messages d'erreur */
+.Inscription .error {
+  color: #dc3545;
+  margin-top: 8px;
+}
+
+/* Style du pied de page */
+.PiedPage {
+  margin-top: 20px; /* Ajoute une marge en haut du pied de page */
+}

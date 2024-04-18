@@ -2,9 +2,8 @@ import React, { useRef, ChangeEvent } from 'react'; // Import de React et des ty
 import Image from '/Images/img.png';
 import Maps from '/Images/Maps.jpg';
 import '../Styles/Accueil.css';
-import PiedPage from '../Composants/PiedPage';
 import '../Styles/PiedPage.css';
-import BarreNavigation from '../Composants/BarreNavigation';
+//import BarreNavigation from '../Composants/BarreNavigation';
 
 const Accueil: React.FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -24,8 +23,8 @@ const Accueil: React.FC = () => {
 
   return (
     <div>
-      <BarreNavigation />
-      <div style={{ marginTop: '100px' }} className="container">
+    
+      <div className="container">
         <div className="column">
           <div className="title">Facilitez vos sorties, partagez vos expériences de déplacements.</div>
           <div className="image-container">
@@ -52,7 +51,7 @@ const Accueil: React.FC = () => {
       <div className="lieux">Les lieux</div>
 
       <img className="Maps" src={Maps} alt="Maps" />
-      <PiedPage />
+   
     </div>
   );
 };

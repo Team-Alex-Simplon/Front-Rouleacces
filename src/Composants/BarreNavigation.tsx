@@ -30,6 +30,7 @@ const BarreNavigation: React.FC = () => {
         <Link to="/les-signalements">Les signalements</Link>
         <Link to="/inscription">inscription</Link>
         <Link to="/connexion">connexion</Link>
+        <Link to="/connexion">Déconnexion</Link>
       </div>
     </nav>
   );

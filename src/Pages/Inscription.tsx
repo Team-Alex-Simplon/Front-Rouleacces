@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import PiedPage from '../Composants/PiedPage'; // Import du pied de page
+import '../Styles/Inscription.css';
 
 interface InscriptionProps {
   onInscriptionSubmit: (data: { pseudo: string; password: string; mail: string }) => void;
@@ -65,7 +64,7 @@ const Inscription: React.FC<InscriptionProps> = ({ onInscriptionSubmit }) => {
           <button type="submit" disabled={loading}>S'inscrire</button>
         </form>
       </div>
-      <PiedPage /> {/* Pied de page */}
+
     </div>
   );
 };

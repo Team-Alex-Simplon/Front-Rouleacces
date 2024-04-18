@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PiedPage from '../Composants/PiedPage';
+import '../Styles/FaireSignalement.css';
 
 interface FaireSignalementProps {}
 
@@ -93,7 +93,7 @@ const FaireSignalement: React.FC<FaireSignalementProps> = () => {
           </button>
         </form>
       </div>
-      <PiedPage />
+ 
     </div>
   );
 };
