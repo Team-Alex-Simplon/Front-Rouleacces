@@ -11,4 +11,3 @@ const PageAvecBarreNavigation: React.FC = () => {
 };
 
 export default PageAvecBarreNavigation;
-//essai sauvegarde
