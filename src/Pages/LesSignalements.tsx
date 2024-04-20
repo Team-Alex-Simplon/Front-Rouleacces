@@ -6,7 +6,7 @@ import '../Styles/LesSignalements.css';
 const LesSignalements: React.FC = () => {
   const [signalements, setSignalements] = useState<any[]>([]);
   const [commentairesParSignalement, setCommentairesParSignalement] = useState<Record<string, any[]>>({});
-  const [nouveauCommentaire, setNouveauCommentaire] = useState(""); // State pour stocker le nouveau commentaire
+  const [nouveauCommentaire, setNouveauCommentaire] = useState<Record<string, string>>({}); // Définir le type de nouveauCommentaire comme un objet dont les clés sont des chaînes et les valeurs sont des chaînes
   const [userId, setUserId] = useState<string>(""); // State pour stocker l'identifiant de l'utilisateur
   const token = localStorage.getItem('token'); // Récupérer le token depuis le localStorage
 
@@ -83,7 +83,7 @@ const LesSignalements: React.FC = () => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ contenu: nouveauCommentaire }) // Envoyer un objet JSON avec la clé "contenu"
+        body: JSON.stringify({ contenu: nouveauCommentaire[signalementId] }) // Utilisez le commentaire correspondant au signalement
       });
       if (response.ok) {
         const nouveauCommentaire = await response.json();
@@ -93,7 +93,10 @@ const LesSignalements: React.FC = () => {
           [signalementId]: [...(prevState[signalementId] || []), nouveauCommentaire]
         }));
         // Réinitialiser le champ de saisie du commentaire
-        setNouveauCommentaire("");
+        setNouveauCommentaire(prevState => ({
+          ...prevState,
+          [signalementId]: ""
+        }));
       } else {
         throw new Error('Erreur lors de l\'ajout du commentaire');
       }
@@ -114,21 +117,29 @@ const LesSignalements: React.FC = () => {
           <p>Longitude: {signalement.longitude}</p>
           <p>Description: {signalement.description}</p>
           <hr />
-          {/* Formulaire pour ajouter un commentaire */}
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            soumettreCommentaire(signalement.id, userId); // Utilisation de l'identifiant de l'utilisateur récupéré du token
-          }}>
-            <input type="text" value={nouveauCommentaire} onChange={(e) => setNouveauCommentaire(e.target.value)} placeholder="Ajouter un commentaire..." />
-            <button type="submit">Commenter</button>
-          </form>
-          {/* Afficher les commentaires */}
+          {/* Afficher les commentaires existants */}
           <div>
             <h4>Commentaires :</h4>
             {commentairesParSignalement[signalement.id]?.map((commentaire: any, index: number) => (
               <p key={index}>{commentaire.contenu}</p>
             ))}
           </div>
+          {/* Formulaire pour ajouter un commentaire */}
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            soumettreCommentaire(signalement.id, userId); // Utilisation de l'identifiant de l'utilisateur récupéré du token
+          }}>
+            <input 
+              type="text" 
+              value={nouveauCommentaire[signalement.id] || ""} 
+              onChange={(e) => setNouveauCommentaire(prevState => ({
+                ...prevState,
+                [signalement.id]: e.target.value
+              }))} 
+              placeholder="Ajouter un commentaire..." 
+            />
+            <button type="submit">Commenter</button>
+          </form>
         </div>
       ))}
     </div>
