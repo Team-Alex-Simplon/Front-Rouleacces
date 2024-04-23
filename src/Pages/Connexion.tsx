@@ -17,7 +17,7 @@ const Connexion: React.FC<ConnexionProps> = ({ onConnexionSubmit }) => {
     setLoading(true);
     
     try {
-      const response = await fetch('http://localhost:3000/api/utilisateurs/login', {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/utilisateurs/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

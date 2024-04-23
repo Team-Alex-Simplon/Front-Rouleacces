@@ -11,23 +11,18 @@ const FaireSignalement: React.FC<FaireSignalementProps> = () => {
   const [chemin, setChemin] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
   const handleLatitudeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLatitude(e.target.value);
   };
-
   const handleLongitudeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLongitude(e.target.value);
   };
-
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDescription(e.target.value);
   };
-
   const handlePhotoUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChemin(e.target.value);
   };
-
  const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setLoading(true);
@@ -44,17 +39,13 @@ const FaireSignalement: React.FC<FaireSignalementProps> = () => {
         description
       })
     });
-
     if (!signalementResponse.ok) {
       throw new Error('Erreur lors de la soumission du signalement');
     }
-
     // Récupérer l'ID du signalement créé
     const signalementData = await signalementResponse.json();
     const createdSignalementId = signalementData.id;
-
     console.log('ID du signalement récupéré:', createdSignalementId); // Afficher l'ID du signalement récupéré
-
     // Ensuite, créer la photo de signalement en utilisant l'ID du signalement créé
     const photoResponse = await fetch(`http://localhost:3000/api/photosignalements/${createdSignalementId}`, {
       method: 'POST',
@@ -65,11 +56,9 @@ const FaireSignalement: React.FC<FaireSignalementProps> = () => {
         chemin
       })
     });
-
     if (!photoResponse.ok) {
       throw new Error('Erreur lors de la création de la photo de signalement');
     }
-
     navigate('/');
   } catch (error: any) {
     console.error('Error while submitting signalement:', error.message);
@@ -78,8 +67,6 @@ const FaireSignalement: React.FC<FaireSignalementProps> = () => {
 
   setLoading(false);
 };
-
-  
   return (
     <div>
       <div className="FaireSignalement">
